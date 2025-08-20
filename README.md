@@ -6,6 +6,12 @@
 
 Fire Viewer es una aplicación web que permite visualizar datos de incendios forestales en tiempo real utilizando datos de NASA FIRMS (Fire Information for Resource Management System) en un mapa interactivo powered by Cesium.
 
+## 📸 Vista previa
+
+![Fire Viewer Screenshot](screenshot.png)
+
+*Visualización en tiempo real de incendios forestales con datos de viento y timeline interactivo*
+
 ### ✨ Características principales
 
 - 🗺️ **Visualización interactiva** con datos de incendios en tiempo real
