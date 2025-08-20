@@ -239,4 +239,16 @@ MIT License - ver [LICENSE](LICENSE) para detalles.
 
 ---
 
-**Desarrollado con ❤️ por ⚠️IA-ismo Labs**
+**Desarrollado por ⚠️ IA-ismo Labs**
+
+## 🤖 Créditos de desarrollo
+
+**Desarrollado por:**
+- **Claude Sonnet 4** - Asistente de IA para desarrollo
+- **GPT-5** - Asistente de IA para desarrollo  
+- **⚠️ IA-ismo Labs** - [Alicia Colmenero Fernández](https://github.com/alixiacf)
+
+**Síguenos:**
+- 📰 **Newsletter**: [IA-ismo](https://www.linkedin.com/newsletters/ia-ismo-7013065703138177024/)
+- 💻 **GitHub**: [@alixiacf](https://github.com/alixiacf)
+- 🏢 **Organización**: [IA-ismo-Lab](https://github.com/IA-ismo-Lab)
