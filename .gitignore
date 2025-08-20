@@ -1,0 +1,25 @@
+# Archivos de entorno y configuración
+.env
+.cache.sqlite
+
+# Directorios de Python
+__pycache__/
+*.py[cod]
+*$py.class
+.venv/
+venv/
+env/
+
+# Archivos temporales del backend
+backend/tmp/
+
+# Logs
+*.log
+
+# IDE
+.vscode/
+.idea/
+
+# Sistema operativo
+.DS_Store
+Thumbs.db

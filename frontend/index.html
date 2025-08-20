@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <title>Fire Viewer - IA-ismo Labs</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/cesium@1.119/Build/Cesium/Widgets/widgets.css" />
+  <style>
+    html, body, #cesiumContainer { width:100%; height:100%; margin:0; padding:0; overflow:hidden; background:#0b0f17; }
+    #panel { position:absolute; top:8px; left:8px; background:rgba(20,20,28,.85); color:#eee; padding:10px 14px; font:12px system-ui; border-radius:6px; max-width:280px; }
+    #status { font-size:11px; opacity:.8; margin-top:4px; }
+    label { display:block; margin-top:4px; }
+    input, select { width:100%; }
+    #branding { position:absolute; bottom:8px; right:8px; background:rgba(20,20,28,.85); color:#eee; padding:6px 10px; font:11px system-ui; border-radius:4px; opacity:0.8; }
+    #branding a { color: #4CAF50; text-decoration: none; }
+  </style>
+</head>
+<body>
+  <div id="cesiumContainer"></div>
+  <div id="panel">
+    <strong>🔥 Incendios (FIRMS)</strong>
+    <div id="counts">Cargando...</div>
+    <label>Confianza mínima:
+      <select id="minConf">
+        <option value="">(todas)</option>
+        <option value="l">l</option>
+        <option value="n">n</option>
+        <option value="h">h</option>
+      </select>
+    </label>
+    <hr style="margin:6px 0;border:none;border-top:1px solid #333;" />
+    <strong style="font-size:12px;">📅 Histórico (UTC)</strong>
+    <label>Inicio:
+      <input type="date" id="histStart" />
+    </label>
+    <label>Fin:
+      <input type="date" id="histEnd" />
+    </label>
+    <div style="display:flex;gap:4px;margin-top:4px;">
+      <button id="loadHistory" style="flex:1;">Cargar</button>
+      <button id="resetHistory" style="flex:1;">Reset</button>
+    </div>
+    <hr style="margin:6px 0;border:none;border-top:1px solid #333;" />
+    <strong style="font-size:12px;">⏱️ Timeline diario</strong>
+    <div style="display:flex;gap:4px;margin-top:4px;align-items:center;">
+      <button id="prevDay" style="width:30px;">◀</button>
+      <input type="range" id="timeSlider" min="0" max="0" value="0" style="flex:1;" />
+      <button id="nextDay" style="width:30px;">▶</button>
+    </div>
+    <div id="timeLabel" style="font-size:11px; opacity:.85; margin-top:4px;">--</div>
+    <div id="dayCounts" style="font-size:11px; max-height:90px; overflow:auto; margin-top:4px; line-height:1.2;"></div>
+    <div style="display:flex;gap:4px;margin-top:6px;">
+      <button id="reload" style="flex:1;">Actualizar</button>
+      <button id="forceFetch" style="flex:1;" title="Forzar descarga a NASA">Forzar</button>
+    </div>
+    <hr style="margin:6px 0;border:none;border-top:1px solid #333;" />
+    <strong style="font-size:12px;">🌬️ Viento</strong>
+    <div id="windInfo" style="font-size:11px; margin-top:4px; line-height:1.3;">
+      <div>Cargando datos...</div>
+    </div>
+    <div style="display:flex;gap:4px;margin-top:4px;">
+      <button id="windCurrent" style="flex:1;font-size:10px;">Actual</button>
+      <button id="windHistory" style="flex:1;font-size:10px;">Histórico</button>
+    </div>
+    <button id="checkHealth" style="margin-top:4px;width:100%;">Health</button>
+    <div id="status"></div>
+  </div>
+  
+  <div id="branding">
+    ⚠️ <a href="https://github.com/IA-ismo-Lab" target="_blank">IA-ismo Labs</a>
+  </div>
+  
+  <script src="https://cdn.jsdelivr.net/npm/cesium@1.119/Build/Cesium/Cesium.js"></script>
+  <script>
+    // CESIUM TOKEN: Reemplaza con tu token de https://cesium.com/ion/signup/
+    window.__CESIUM_TOKEN = "YOUR_CESIUM_TOKEN_HERE";
+  </script>
+  <script src="app.js"></script>
+</body>
+</html>
