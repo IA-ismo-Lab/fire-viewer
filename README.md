@@ -1,5 +1,12 @@
 # 🔥 Fire Viewer
 
+[![Python](https://img.shields.io/badge/Python-3.11+-blue?logo=python&logoColor=white)](https://python.org)
+[![FastAPI](https://img.shields.io/badge/FastAPI-0.111+-green?logo=fastapi)](https://fastapi.tiangolo.com)
+[![Cesium](https://img.shields.io/badge/Cesium-Maps-cyan?logo=cesium)](https://cesium.com)
+[![License](https://img.shields.io/badge/License-MIT-yellow)](LICENSE)
+[![Status](https://img.shields.io/badge/Status-Beta-orange)](https://github.com/IA-ismo-Lab/fire-viewer)
+[![IA-Friendly](https://img.shields.io/badge/IA--Friendly-Agent--Ready-purple)](https://github.com/IA-ismo-Lab)
+
 **Un visualizador en tiempo real de incendios forestales desarrollado por ⚠️ IA-ismo Labs**
 
 ## 📋 Descripción
@@ -139,6 +146,38 @@ cd frontend && python3 -m http.server 8080
 - **API Backend**: http://localhost:8089
 - **API Docs**: http://localhost:8089/docs
 
+### 🐍 Uso programático
+
+**Acceso directo a la API desde Python:**
+
+```python
+import requests
+
+# Obtener incendios actuales
+response = requests.get('http://localhost:8089/fires')
+fires_data = response.json()
+print(f"Incendios detectados: {len(fires_data['features'])}")
+
+# Obtener datos de viento
+weather = requests.get('http://localhost:8089/weather?lat=42.5&lon=-7.5')
+wind_info = weather.json()
+print(f"Viento: {wind_info['wind_speed']} km/h, {wind_info['wind_direction']}°")
+
+# Filtrar por dataset y período
+params = {'dataset': 'VIIRS_SNPP_NRT', 'hours': 24}
+filtered = requests.get('http://localhost:8089/fires', params=params)
+```
+
+**Para automatización con cURL:**
+
+```bash
+# Datos de incendios en JSON
+curl "http://localhost:8089/fires?dataset=VIIRS_SNPP_NRT&hours=12"
+
+# Información meteorológica  
+curl "http://localhost:8089/weather?lat=42.5&lon=-7.5"
+```
+
 ## 🎮 Características de la interfaz
 
 ### Panel de control
@@ -250,9 +289,14 @@ MIT License - ver [LICENSE](LICENSE) para detalles.
 ## 🤖 Créditos de desarrollo
 
 **Desarrollado por:**
-- **Claude Sonnet 4** - Asistente de IA para desarrollo
-- **GPT-5** - Asistente de IA para desarrollo  
+- **Claude Sonnet 3.5** - Asistente de IA para desarrollo
+- **GPT-4** - Asistente de IA para desarrollo  
 - **⚠️ IA-ismo Labs** - [Alicia Colmenero Fernández](https://github.com/alixiacf)
+
+**Metadatos programables:**
+- 🤖 **IA-Friendly**: Preparado para automatización por otros agentes
+- 📡 **API-Ready**: Endpoints documentados para integración directa
+- 🔄 **Agent-Compatible**: Metadatos en `.ia-meta` para detección automática
 
 **Síguenos:**
 - 📰 **Newsletter**: [IA-ismo](https://www.linkedin.com/newsletters/ia-ismo-7013065703138177024/)

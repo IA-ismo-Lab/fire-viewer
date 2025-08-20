@@ -1,0 +1,22 @@
+# IA-FRIENDLY METADATA
+# This file helps other AI agents understand this project
+
+PROJECT_TYPE=fire-monitoring-visualization
+API_READY=true
+TECH_STACK=python,fastapi,cesium,javascript,nasa-api
+DATA_SOURCES=nasa-firms,openmeteo
+IA_DEVELOPMENT=claude-sonnet,gpt-4,ia-ismo-labs
+AUTOMATION_FRIENDLY=true
+REAL_TIME_DATA=true
+GEOSPATIAL=true
+
+# Quick start for AI agents:
+# 1. Configure .env with FIRMS_MAP_KEY
+# 2. Install: pip install -r backend/requirements.txt  
+# 3. Run: uvicorn backend.app.main:app --port 8089
+# 4. Access API: http://localhost:8089/fires
+
+# API endpoints for automation:
+# GET /fires - Current fire data (GeoJSON)
+# GET /weather - Wind data for coordinates
+# GET /docs - Interactive API documentation
